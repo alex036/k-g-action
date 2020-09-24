@@ -1,0 +1,17 @@
+# action.yml
+name: 'Kafka-Gitops Action'
+description: 'Kafka-Gitops Action'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.state-file }}
+inputs:
+  plan:  # id of input
+    description: 'Plan the statefile'
+    required: true
+  workingDirectory:
+    description: "The relative path which commands should be run from"
+outputs:
+  plan: # id of output
+    description: 'The plan output'
