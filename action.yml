@@ -9,6 +9,16 @@ runs:
 inputs:
   workingDirectory:
     description: "The relative path which commands should be run from"
+  KAFKA_BOOTSTRAP_SERVERS:
+    description: "Your Confluent Cloud cluster URL"
+  KAFKA_SASL_JAAS_USERNAME:
+    description: "Your Confluent Cloud API key"
+  KAFKA_SASL_JAAS_PASSWORD:
+    description: "Your Confluent Cloud API secret"
+  XX_CCLOUD_EMAIL:
+    description: "Your Confluent Cloud administrator email"
+  XX_CCLOUD_PASSWORD:
+    description: "Your Confluent Cloud administrator password"
 outputs:
   plan_output: # id of output
     description: 'The plan output'
