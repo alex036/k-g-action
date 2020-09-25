@@ -7,11 +7,8 @@ runs:
   args:
     - ${{ inputs.state-file }}
 inputs:
-  plan:  # id of input
-    description: 'Plan the statefile'
-    required: true
   workingDirectory:
     description: "The relative path which commands should be run from"
 outputs:
-  plan: # id of output
+  plan_output: # id of output
     description: 'The plan output'
