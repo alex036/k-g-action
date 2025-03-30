@@ -1,0 +1,10 @@
+name: Always Fails
+on: [push, workflow_dispatch]
+jobs:
+  fail:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a failing command
+        run: |
+          echo "This workflow will fail..."
+          exit 1

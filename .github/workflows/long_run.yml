@@ -1,0 +1,12 @@
+name: Variable Runtime
+on: [workflow_dispatch] # Manual trigger is good for this
+jobs:
+  wait:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for 30 seconds
+        run: sleep 30
+      - name: Wait for 1 minute
+        run: sleep 60
+      - name: Done
+        run: echo "Finished waiting."

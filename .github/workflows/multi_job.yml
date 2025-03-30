@@ -1,0 +1,24 @@
+name: Multi-Job Example
+on: [push, workflow_dispatch]
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Running Job 1"
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1 # job2 depends on job1
+    steps:
+      - run: echo "Running Job 2 after Job 1"
+  job3_fails:
+    runs-on: ubuntu-latest
+    needs: job1 # job3 depends on job1, runs in parallel with job2
+    steps:
+      - name: This job fails
+        run: exit 1
+  job4:
+     runs-on: ubuntu-latest
+     needs: [job2, job3_fails] # This job depends on job2 (success) and job3 (failure)
+     if: always() # Run even if dependencies fail
+     steps:
+       - run: echo "Running Job 4 (will run, but workflow conclusion might be failure)"
